@@ -1,0 +1,71 @@
+/* .jumbotron {
+  padding-top: 6rem;
+  background-color: #e2edff;
+} */
+#Acara {
+  background-color: #ecfaf7;
+}
+section {
+  padding-top: 6rem;
+}
+#home {
+  padding-top: 0rem;
+}
+/* .text {
+  background-image: url("img/Projects/Background.JPG");
+  width: 520px;
+  height: 747px;
+}
+@media screen and (max-width: 768px) {
+  .text {
+    width: 90%;
+  }
+} */
+/* .teks p {
+  padding: 430px 20px 30px;
+  color: #f90;
+  font: bold italic 20px sans-serif;
+} */
+
+.main {
+  margin: auto 10%;
+  padding-top: 8%;
+  text-align: center;
+  color: #696969;
+}
+h4 {
+  margin-bottom: 40px;
+  font-size: 30px;
+  color: rgb(102, 211, 52);
+}
+#clock > div {
+  border-radius: 5px;
+  background: #ecfaf7;
+  padding: 20px 20px 10px 20px;
+  color: rgb(102, 211, 52);
+  display: inline-block;
+}
+#clock > div > p {
+  font-size: 16px;
+}
+#days,
+#hours,
+#minutes,
+#seconds {
+  padding: 20px;
+  font-size: 20px;
+  background: #ecfaf7;
+  display: inline-block;
+  width: 40px;
+}
+span.turn {
+  animation: turn 0.7s ease;
+}
+@keyframes turn {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(360deg);
+  }
+}
