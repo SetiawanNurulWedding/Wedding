@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="shortcut icon" href="Cover.JPG">
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -78,7 +79,13 @@
             <p>Maha suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah dengan izin dan ridho-Mu perkenankanlah kami merangkaikan tali kasih sayang yang Engkau ciptakan diantara putra-putri kami</p>
             <h2>Achmad Setiawan Ardiansah</h2>
             <p>Putra Kedua belas dari Bapak Imamudin (alm) & Ibu Mudirah</p>
-            <i class="bi bi-suit-heart-fill text-danger"></i>
+            <p> <!-- Audio -->
+              <audio id="nyan" src=menikahimu.mp3 preload="metadata" type="audio/mpeg">
+                Your browser does not support the audio element.
+             </audio>
+             <a class="bi bi-suit-heart-fill text-danger" id="nyan-btn"></a>
+              <!-- akhir audio --></p>
+            <!-- <i class="bi bi-suit-heart-fill text-danger"></i> -->
             <h2>Nurul Laili</h2>
             <p>Putri Kedua dari Bapak Rusman & Ibu Parwidah</p>
             <br />
@@ -122,7 +129,7 @@
         </div>
         <div class="row justify-content-center">
           <div class="col-md-6">
-            <div class="card">
+            <div class="card"> 
             <div class="main">
               <h4>Countdown Timer</h4>
               <div id="clock">
@@ -203,7 +210,54 @@
         ></path>
       </svg>
     </section>
-    <!-- Footer -->
+   
+   <!--js Audio -->
+    <script>
+        var nyan = document.getElementById('nyan');
+        var nyanBtn = document.getElementById('nyan-btn');
+
+        function playPause(song){
+          if (song.paused && song.currentTime >= 0 && !song.ended) {
+              song.play();
+          } else {
+              song.pause();
+          }
+        }
+
+        function reset(btn, song){
+          if(btn.classList.contains('playing')){
+              btn.classList.toggle('playing');
+          }
+          song.pause();
+          song.currentTime = 0;
+        }
+
+        function progress(btn, song){
+          setTimeout(function(){
+              var end = song.duration; 
+              var current = song.currentTime;
+              var percent = current/(end/100);
+              //check if song is at the end
+              if(current==end){
+                reset(btn, song);
+              }
+              //set inset box shadow
+              btn.style.boxShadow = "inset " + btn.offsetWidth * (percent/100) + "px 0px 0px 0px rgba(0,0,0,0.125)"
+              //call function again
+              progress(btn, song);     
+          }, 1000);
+        }
+
+        nyanBtn.addEventListener('click', function(){
+          nyanBtn.classList.toggle('playing');
+          playPause(nyan);
+          progress(nyanBtn, nyan);
+        });
+
+    </script>
+    
+<!-- akhir js -->
+   <!-- Footer -->
     <!-- <footer class="bg-success text-white text-center pb-5">
       <p>Created with <i class="bi bi-suit-heart-fill text-danger"></i> by <a href="https://www.instagram.com/setiawan_ardiyansah/" class="text-white fw-bold">Setiawan</a></p>
     </footer> -->
